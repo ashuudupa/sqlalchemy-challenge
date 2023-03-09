@@ -14,16 +14,16 @@ engine = create_engine("sqlite:///hawaii.sqlite")
 Base = automap_base()
 # Reflect tables
 Base.prepare(engine, reflect=True)
-# Set class variables
+# Class variables
 Measurement = Base.classes.measurement
 Station = Base.classes.station
-# Creates session link from Python to SQLite database
+# Session link from Python to SQLite database
 session = Session(engine)
-# Create Flask app, all routes go after this code
+# Flask app, all routes go after this code
 app = Flask(__name__)
 
 
-# Define welcome route
+# Welcome route
 @app.route("/")
 def welcome():
     return(
